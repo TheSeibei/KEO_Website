@@ -398,9 +398,10 @@ class KEO_User_Search_Map {
         else { document.addEventListener('DOMContentLoaded', fn); }
       }
 
-      onReady(function () {
-        if (typeof maplibregl === 'undefined') { setTimeout(onReady, 50); return; }
+      function init() {
+        if (typeof maplibregl === 'undefined') { setTimeout(init,50); return; }
 
+        
         const widget    = document.getElementById(<?php echo json_encode($uid); ?>);
         const input     = widget.querySelector('.hws-input');
         const suggestions = widget.querySelector('.hws-suggestions');
@@ -740,7 +741,8 @@ class KEO_User_Search_Map {
         function a(s) {
           return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#x27;');
         }
-      });
+      }
+      onReady(init);
     })();
     </script>
 
