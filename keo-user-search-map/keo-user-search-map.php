@@ -392,6 +392,8 @@ class KEO_User_Search_Map {
     </style>
 
     <script>
+      console.log("SCRIPT START");
+      alert("SCRIPT START");
     (function () {
       function onReady(fn) {
         if (document.readyState !== 'loading') { fn(); }
@@ -432,6 +434,7 @@ class KEO_User_Search_Map {
           zoom: 5,
           attributionControl: false,
         });
+
 
         console.log("Map erstellt");
 
