@@ -427,13 +427,27 @@ class KEO_User_Search_Map {
         let lastSearchLngLat = null; // fallback center when no business bounds
 
         // FIX 1: attributionControl: false + compact control added manually
-        map = new maplibregl.Map({
-          container: mapEl,
-          style: MAP_STYLE,
-          center: [14.1, 47.6],
-          zoom: 5,
-          attributionControl: false,
-        });
+      console.log("maplibregl =", typeof maplibregl);
+      console.log("mapEl =", mapEl);
+      console.log("MAP_STYLE =", MAP_STYLE);
+
+        try {
+          map = new maplibregl.Map({
+              container: mapEl,
+              style: MAP_STYLE,
+              center: [14.1, 47.6],
+              zoom: 5,
+              attributionControl: false,
+          });
+
+          console.log("Map erstellt");
+
+          map.on("load", () => console.log("Map load"));
+          map.on("error", e => console.error("Map error", e));
+
+        } catch (e) {
+            console.error("Fehler beim Erzeugen der Karte:", e);
+        }
 
 
         console.log("Map erstellt");
