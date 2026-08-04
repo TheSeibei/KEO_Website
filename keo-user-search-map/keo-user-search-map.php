@@ -392,7 +392,6 @@ class KEO_User_Search_Map {
     </style>
 
     <script>
-      console.log("SCRIPT START");
       alert("SCRIPT START");
     (function () {
       function onReady(fn) {
@@ -401,12 +400,9 @@ class KEO_User_Search_Map {
       }
 
       function init() {
-        console.log("INIT");
         if (typeof maplibregl === 'undefined') { setTimeout(init,50); return; }
 
-        console.log("VOR WIDGET");
         const widget    = document.getElementById(<?php echo json_encode($uid); ?>);
-        console.log(widget);
         const input     = widget.querySelector('.hws-input');
         const suggestions = widget.querySelector('.hws-suggestions');
         const searchBtn = widget.querySelector('.hws-search-btn');
@@ -429,9 +425,6 @@ class KEO_User_Search_Map {
         let lastSearchLngLat = null; // fallback center when no business bounds
 
         // FIX 1: attributionControl: false + compact control added manually
-      console.log("maplibregl =", typeof maplibregl);
-      console.log("mapEl =", mapEl);
-      console.log("MAP_STYLE =", MAP_STYLE);
 
         try {
           map = new maplibregl.Map({
@@ -442,8 +435,6 @@ class KEO_User_Search_Map {
               attributionControl: false,
           });
 
-          console.log("Map erstellt");
-
           map.on("load", () => console.log("Map load"));
           map.on("error", e => console.error("Map error", e));
 
@@ -452,19 +443,6 @@ class KEO_User_Search_Map {
         }
 
 
-        console.log("Map erstellt");
-
-        map.on("load", () => {
-            console.log("Map geladen");
-        });
-
-        map.on("style.load", () => {
-            console.log("Style geladen");
-        });
-
-        map.on("error", e => {
-            console.error("Map Error:", e);
-        });
 
         map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
         map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-left');
