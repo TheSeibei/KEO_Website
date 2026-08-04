@@ -193,9 +193,9 @@ class KEO_User_Search_Map {
 
   public function shortcode() {
     // MapLibre GL JS + OpenFreeMap vector tiles (no token required in the browser)
-    if (!wp_style_is('maplibre-gl', 'enqueued')) {
-      wp_enqueue_style('maplibre-gl', 'https://unpkg.com/maplibre-gl/dist/maplibre-gl.css', [], '1.5.2');
-      wp_enqueue_script('maplibre-gl', 'https://unpkg.com/maplibre-gl/dist/maplibre-gl.js', [], '1.5.2', true);
+    if (!wp_script_is('maplibre-gl', 'enqueued')) {
+      wp_enqueue_style('maplibre-gl', 'https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css', [], '4.7.1');
+      wp_enqueue_script('maplibre-gl', 'https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js', [], '4.7.1', true);
     }
 
     $uid         = 'hws-' . wp_unique_id();
