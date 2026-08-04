@@ -433,6 +433,20 @@ class KEO_User_Search_Map {
           attributionControl: false,
         });
 
+        console.log("Map erstellt");
+
+        map.on("load", () => {
+            console.log("Map geladen");
+        });
+
+        map.on("style.load", () => {
+            console.log("Style geladen");
+        });
+
+        map.on("error", e => {
+            console.error("Map Error:", e);
+        });
+
         map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
         map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-left');
 
