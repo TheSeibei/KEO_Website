@@ -401,10 +401,12 @@ class KEO_User_Search_Map {
       }
 
       function init() {
+        console.log("INIT");
         if (typeof maplibregl === 'undefined') { setTimeout(init,50); return; }
 
-        
+        console.log("VOR WIDGET");
         const widget    = document.getElementById(<?php echo json_encode($uid); ?>);
+        console.log(widget);
         const input     = widget.querySelector('.hws-input');
         const suggestions = widget.querySelector('.hws-suggestions');
         const searchBtn = widget.querySelector('.hws-search-btn');
