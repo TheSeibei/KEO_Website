@@ -392,7 +392,6 @@ class KEO_User_Search_Map {
     </style>
 
     <script>
-      alert("SCRIPT START");
     (function () {
       function onReady(fn) {
         if (document.readyState !== 'loading') { fn(); }
